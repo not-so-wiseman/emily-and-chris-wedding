@@ -13,12 +13,12 @@
 
 /* --- Core Base Styles & Custom Variables --- */
 :root {
-    --color-white: #fAF6EC;
-    --color-white-rgb: 250, 246, 236; 
-    --color-bg: #FAF6EC;         /* Soft warm cream canvas */
-    --color-primary: #546030;    /* Elegant muted olive green */
-    --color-text: #2C2C28;       /* Sophisticated deep slate charcoal */
-    --color-accent: #5C2A4D;     /* Earthy taupe/gold accent */
+    --color-white-rgb: 250, 246, 236;  
+    --color-bg-light: #FEFBF6;     
+    --color-primary: #6D6B3E;
+    --color-text-dark: #262424;     
+    --color-text-light: #FFFFFF;       
+    --color-accent: #5C2A4D;
     --font-serif: 'Cormorant Garamond', serif;
     --font-sans: 'Raleway', Arial, sans-serif;
     --font-title: "IM Fell English", Georgia, serif;
@@ -35,6 +35,8 @@ html, body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
 }
 
 h1 {
@@ -42,21 +44,21 @@ h1 {
     text-transform: uppercase;
     font-size: 2.5rem;
     font-weight: 500;
-    color: var(--color-text);
+    color: var(--color-text-dark);
 }
 
 h3 {
     font-family: var(--font-serif);
     font-size: 1.5rem;
     font-weight: 500;
-    color: var(--color-text);
+    color: var(--color-text-dark);
     font-style: italic;
 }
 
 p {
     font-size: 1rem;
     font-weight: 500;
-    color: #3b3931;
+    color: var(--color-text-dark);
     font-family: var(--font-sans);
 }
 
@@ -87,8 +89,10 @@ p {
     font-family: var(--font-sans);
     text-transform: uppercase;
     letter-spacing: 22%;
+    /*
     position: sticky;
     top: 0;
+    */
     z-index: 1000;
     width: 100%;
     /* Transparent background with a modern glass blur effect */
@@ -112,7 +116,7 @@ p {
 
 /* Typography & Links */
 .nav-links a {
-    color: rgba(var(--color-white-rgb), 0.9);
+    color: var(--color-text-light);
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
@@ -120,7 +124,11 @@ p {
     padding: 0px 8px;
 }
 .nav-links a:hover {
-    color: white;
+    font-weight: 600;
+}
+
+.nav-links.dark a {
+    color: var(--color-primary) !important;
 }
 
 /* Alignment within the grid columns */
@@ -279,7 +287,7 @@ p {
     letter-spacing: 10%;
     font-size: 2rem;
     text-transform: uppercase;
-    color: var(--color-white);
+    color: var(--color-text-light);
     text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
 }
 
@@ -288,7 +296,7 @@ p {
     font-weight: 400;
     font-size: 4rem;
     font-style: italic;
-    color: var(--color-white);
+    color: var(--color-text-light);
     text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
 }
 
@@ -297,8 +305,12 @@ p {
     height: 75px;
     margin-top: -75px;
     align-self: flex-end;
-    background: linear-gradient(to top, var(--color-white), transparent);
-    border-bottom: 10px solid rgba(250, 246, 236, 0.5); /* using your #FAF6EC at 50% */
+    background: linear-gradient(to top, var(--color-bg-light), transparent);
+}
+
+.hero-section a {
+    text-decoration: none;
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -324,12 +336,12 @@ p {
     align-items: center;
     flex-direction: column;
     background-color: var(--color-primary);
-    color: var(--color-white);
+    color: var(--color-text-light);
     gap: 24px;
 }
 
 #count-down h1 {
-    color: var(--color-white);
+    color: var(--color-text-light);
 }
 
 .timer-display {
@@ -434,7 +446,7 @@ p {
 
 .timeline-event div.left {
     text-align: left;
-    border-left: 1px solid var(--color-text);
+    border-left: 1px solid var(--color-text-dark);
     align-items: start;
 }
 
@@ -444,14 +456,14 @@ p {
     position: absolute;
     width: 6px;
     height: 6px;
-    background-color: var(--color-text);
+    background-color: var(--color-text-dark);
     border-radius: 50%;
     
     /* Pins it precisely in the center of the vertical line */
     left: -0.5px;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: -1; /* Ensures it sits on top of the line */
+    z-index: 1; /* Ensures it sits on top of the line */
 }
 
 .timeline-event div img {
@@ -547,7 +559,8 @@ p {
 
 /* --- FAQ --- */
 section#faq {
-    background-color: var(--color-primary);
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -555,10 +568,12 @@ section#faq {
     text-align: center;
     width: 100%;
     gap: 32px;
+    margin-top: -70px;
 }
 
 #faq h1 {
-    color: var(--color-white);
+    padding-top: 64px;
+    color: var(--color-text-dark);
 }
 
 #faq .question-block {
@@ -566,7 +581,7 @@ section#faq {
 }
 
 #faq p {
-    color: var(--color-white);
+    color: var(--color-text-dark);
     text-align: left;
 }
 
@@ -582,7 +597,7 @@ section#faq {
 #faq ul {
     padding-left: 16px;
     padding-top: 12px;
-    color: var(--color-white);
+    color: var(--color-text-dark);
 }
 
 #faq li {
@@ -591,12 +606,13 @@ section#faq {
 
 #faq a {
     text-decoration: none;
+    color: var(--color-primary);
 }
 
 #faq a:hover {
-    color: rgba(var(--color-white-rgb), 1);
     text-decoration: none;
     transition: color 0.2s ease;
+    font-weight: 600;
 }
 
 
@@ -604,3 +620,6 @@ section#faq {
 footer {
     text-align: center;
 }
+
+
+
